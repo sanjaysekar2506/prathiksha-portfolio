@@ -1,11 +1,15 @@
-// add Link import
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+
+  // lock / unlock body scroll when menu toggles
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
   const links = [
     { label: "About", href: "#about" },
@@ -15,9 +19,11 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 backdrop-blur">
+    <header
+      className="fixed inset-x-0 top-0 z-50 bg-beige/80 backdrop-blur-md shadow-md"
+      style={{ "--nav-h": "64px" }} // fallback navbar height
+    >
       <nav className="mx-auto flex max-w-6xl items-center justify-between p-4">
-        {/* brand → go HOME */}
         <Link
           to="/"
           className="font-serif text-xl font-semibold text-cocoa"
@@ -37,7 +43,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* hamburger menu button */}
+        {/* hamburger */}
         <button
           className="md:hidden text-cocoa"
           aria-label="Toggle navigation menu"
@@ -50,14 +56,16 @@ export default function Navbar() {
       {/* mobile menu */}
       <AnimatePresence>
         {open && (
-          <motion.aside
+          <motion.div
+            key="mobile-nav"
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden w-full left-0 bg-white/80 backdrop-blur text-cocoa"
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 bg-white/90 backdrop-blur overflow-y-auto md:hidden"
+            style={{ paddingTop: "var(--nav-h)" }} // push below navbar
           >
-            <ul className="flex flex-col items-center gap-6 py-6 px-4">
+            <ul className="flex flex-col items-center gap-6 py-8">
               {links.map(({ href, label }) => (
                 <li key={href}>
                   <a
@@ -70,7 +78,7 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-          </motion.aside>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
