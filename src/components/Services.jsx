@@ -1,9 +1,12 @@
 export default function Services() {
-  const services = [
-    { title: "Bridal Makeup", img: "/src/assets/bridal.jpg" },
-    { title: "Special Event Makeup", img: "/src/assets/event.jpg" },
-    { title: "Editorial / Photoshoots", img: "/src/assets/editorial.jpg" },
-  ];
+ // src/components/Services.jsx (inside the services array)
+
+const services = [
+  { title: "Bridal Makeup", img: "/assets/bridal.jpg" },
+  { title: "Special Event Makeup", img: "/assets/event.jpg" },
+  { title: "Editorial / Photoshoots", img: "/assets/editorial.jpg" },
+];
+
 
   /** Desktop layout */
   const ServicesDesktop = () => (

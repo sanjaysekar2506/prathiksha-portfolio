@@ -3,7 +3,7 @@ export default function Owner() {
     <section id="owner" className="bg-beige py-24">
       <h2 className="text-center font-serif text-4xl">Meet the Owner</h2>
       <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center gap-10 md:flex-row px-4">
-        <img src="/src/assets/owner.jpg" alt="Natalie Chung" className="h-80 w-64 rounded-2xl object-cover" />
+        <img src="/assets/owner.jpg" alt="Natalie Chung" className="h-80 w-64 rounded-2xl object-cover" />
         <div className="space-y-6 leading-relaxed">
           <h3 className="font-serif text-2xl">Prathiksha Parthiban</h3>
           <p className="mt-8 text-cocoa/90 text-lg leading-relaxed">
