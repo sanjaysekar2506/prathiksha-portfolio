@@ -19,11 +19,11 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between p-4">
         {/* brand → go HOME */}
         <Link
-          to="/"                    // ← this changes the route back to /
+          to="/"
           className="font-serif text-xl font-semibold text-cocoa"
           onClick={() => setOpen(false)}
         >
-          Prathiksha Parthiban 
+          Prathiksha Parthiban
         </Link>
 
         {/* desktop links */}
@@ -37,7 +37,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* hamburger */}
+        {/* hamburger menu button */}
         <button
           className="md:hidden text-cocoa"
           aria-label="Toggle navigation menu"
@@ -54,15 +54,15 @@ export default function Navbar() {
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden backdrop-blur bg-transparent pb-6 text-cocoa"
+            transition={{ duration: 0.3 }}
+            className="md:hidden w-full bg-white/80 backdrop-blur text-cocoa"
           >
-            <ul className="flex flex-col items-center gap-6 pt-6">
+            <ul className="flex flex-col items-center gap-6 py-6 px-4">
               {links.map(({ href, label }) => (
-                <li key={href} className="px-2 py-2">
+                <li key={href}>
                   <a
                     href={href}
-                    className="text-lg transition hover:opacity-70"
+                    className="text-lg font-medium transition hover:opacity-70"
                     onClick={() => setOpen(false)}
                   >
                     {label}
