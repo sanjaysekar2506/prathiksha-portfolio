@@ -55,7 +55,7 @@ export default function Navbar() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.3 }}
-            className="md:hidden w-full bg-white/80 backdrop-blur text-cocoa"
+            className="md:hidden w-full left-0 bg-white/80 backdrop-blur text-cocoa"
           >
             <ul className="flex flex-col items-center gap-6 py-6 px-4">
               {links.map(({ href, label }) => (
