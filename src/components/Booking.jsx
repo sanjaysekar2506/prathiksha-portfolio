@@ -7,7 +7,7 @@ export default function Booking() {
   const handleWhatsApp = (e) => {
     e.preventDefault();
 
-    const phoneNumber = "916379063282"; // ← Replace with your WhatsApp number (with country code)
+    const phoneNumber = "919677968065"; // ← Replace with your WhatsApp number (with country code)
     const encodedMessage = encodeURIComponent(
       `Hi, I'm ${name}. ${message}`
     );
